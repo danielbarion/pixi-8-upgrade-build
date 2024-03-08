@@ -1,0 +1,32 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "Book Level 1",
+      "description": "Description 1",
+      "icon": "book_1",
+      "price": 100
+    },
+    {
+      "id": 2,
+      "name": "Book Level 2",
+      "description": "Description 2",
+      "icon": "book_2",
+      "price": 100
+    },
+    {
+      "id": 3,
+      "name": "Book Level 3",
+      "description": "Description 3",
+      "icon": "book_3",
+      "price": 100
+    },
+    {
+      "id": 4,
+      "name": "Sword Level 1",
+      "description": "Description 3",
+      "icon": "sword_1",
+      "price": 100
+    }
+  ]
+}

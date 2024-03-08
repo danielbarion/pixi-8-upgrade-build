@@ -1,0 +1,48 @@
+[
+  {
+    "name": "login",
+    "zIndex": 0,
+    "parentScene": "login"
+  },
+  {
+    "name": "login_form",
+    "zIndex": 1,
+    "parentScene": "login"
+  },
+  {
+    "name": "ui",
+    "zIndex": 2,
+    "parentScene": "game",
+    "childrens": [
+      {
+        "name": "inventory",
+        "zIndex": 1,
+        "childrens": [
+          {
+            "name": "inventory_items_slot",
+            "zIndex": 1
+          },
+          {
+            "name": "inventory_items",
+            "zIndex": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "ground",
+    "zIndex": 0,
+    "parentScene": "game"
+  },
+  {
+    "name": "characters",
+    "zIndex": 1,
+    "parentScene": "game"
+  },
+  {
+    "name": "animations",
+    "zIndex": 1,
+    "parentScene": "game"
+  }
+]

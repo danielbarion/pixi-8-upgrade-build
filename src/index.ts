@@ -1,0 +1,4 @@
+/**
+ * Game
+ */
+import './initialize-game'

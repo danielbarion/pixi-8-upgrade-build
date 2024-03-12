@@ -1,4 +1,4 @@
-import { aliasConfig, appBundle } from './config/rollup'
+import { aliasConfig, outputConfig } from './config/rollup'
 import { string } from 'rollup-plugin-string'
 import { terser } from 'rollup-plugin-terser'
 import { version } from './package.json'
@@ -26,7 +26,7 @@ export default [
   {
     input: ['src/index.ts'],
     output: {
-      file: `build/${appBundle}`,
+      output: outputConfig.esm.outputConfig,
       format: 'umd',
       sourcemap: false,
     },
@@ -40,7 +40,7 @@ export default [
       html({
         input: './public/index.html',
         output: './public/index.html',
-        template: { appBundle },
+        template: { appBundle: outputConfig.esm.htmlFileName },
       }),
       replace(
         // https://github.com/rollup/plugins/tree/master/packages/replace#preventassignment

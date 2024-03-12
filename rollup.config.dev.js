@@ -1,4 +1,4 @@
-import { aliasConfig, copyConfig, appBundle } from './config/rollup'
+import { aliasConfig, copyConfig, outputConfig } from './config/rollup'
 import { string } from 'rollup-plugin-string'
 import { version } from './package.json'
 import alias from '@rollup/plugin-alias'
@@ -24,11 +24,7 @@ dotenv.config({
 export default [
   {
     input: ['src/index.ts'],
-    output: {
-      file: `build/${appBundle}`,
-      format: 'umd',
-      sourcemap: true,
-    },
+    output: outputConfig.esm.outputConfig,
     plugins: [
       nodePolyfills(),
       progress(),
@@ -39,7 +35,7 @@ export default [
       html({
         input: './public/index.html',
         output: './public/index.html',
-        template: { appBundle },
+        template: { appBundle: outputConfig.esm.htmlFileName },
       }),
       replace({
         preventAssignment: true,
@@ -59,7 +55,9 @@ export default [
         include: '**/*.css',
         extensions: ['.css', '.sss', '.stylus', '.styl', '.pcss', '.scss'],
       }),
-      nodeResolve(),
+      nodeResolve({
+        browser: true,
+      }),
       babel(),
       commonjs(),
       copy(copyConfig),

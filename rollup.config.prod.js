@@ -1,4 +1,4 @@
-import { aliasConfig, appBundle } from './config/rollup'
+import { aliasConfig, outputConfig } from './config/rollup'
 import { string } from 'rollup-plugin-string'
 import { terser } from 'rollup-plugin-terser'
 import { version } from './package.json'
@@ -24,11 +24,7 @@ dotenv.config({
 export default [
   {
     input: ['src/index.ts'],
-    output: {
-      file: `dist/${appBundle}`,
-      format: 'umd',
-      sourcemap: false,
-    },
+    output: outputConfig.esm.outputConfig,
     plugins: [
       nodePolyfills(),
       progress(),
@@ -39,7 +35,7 @@ export default [
       html({
         input: './public/index.html',
         output: './public/index.html',
-        template: { appBundle },
+        template: { appBundle: outputConfig.esm.htmlFileName },
       }),
       replace(
         // https://github.com/rollup/plugins/tree/master/packages/replace#preventassignment

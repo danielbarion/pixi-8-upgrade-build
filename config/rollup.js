@@ -1,4 +1,5 @@
 /* eslint-disable n/no-path-concat */
+
 /**
  * Rollup configs
  */
@@ -22,14 +23,31 @@ const copyConfig = {
   verbose: true,
 }
 
-/**
- * Currently, the app name are static to `app.js`, but for a
- * random name of app file use: `app-${new Date().getTime()}.js`
- */
-const appBundle = 'app.js'
+const outputConfig = {
+  umd: {
+    htmlFileName: 'app.js',
+    outputConfig: {
+      file: `build/app.js`,
+      format: 'umd',
+      sourcemap: true,
+    },
+  },
+  esm: {
+    htmlFileName: 'index.js',
+    outputConfig: {
+      dir: 'build',
+      format: 'esm',
+      sourcemap: true,
+      paths: {
+        // '@pixi/core': 'https://cdn.skypack.dev/@pixi/core',
+        // '@pixi/display': 'https://cdn.skypack.dev/@pixi/display',
+      },
+    },
+  },
+}
 
 /**
  * Export all Rollup
  * configs as a single object
  */
-export { aliasConfig, copyConfig, appBundle }
+export { aliasConfig, copyConfig, outputConfig }
